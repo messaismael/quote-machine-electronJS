@@ -1,0 +1,94 @@
+body{
+  overflow: hidden;
+}
+#container{
+  height: 97vh;
+}
+#quote-box{
+  border: 1px solid black;
+  
+  padding: 25px;
+  background-color: wheat;
+  border-radius: 10px;
+}
+
+#text{
+  font-size: 20px;
+  height: 60%;
+}
+
+#author{
+  float: right;
+}
+.author{
+  float: right;
+  font-size: 20px;
+}
+
+#tweet-quote{
+  color:white;
+  font-size: 25px;
+}
+
+#tumblr-quote{
+  margin-left: 5px;
+  color:white;
+  font-size: 25px;
+
+}
+
+#new-quote{
+  float: right;
+  color:white;
+  font-size: 20px;
+  height: 100%;
+}
+
+#copyright{
+  color:black;
+}
+
+#footer {
+  height: 3vh;
+  text-align: center !important;
+  color: white;
+  width: 75px;
+}
+
+@media only screen and (max-width:575px){
+  #container{
+    height: 95vh;
+  }
+
+  #quote-box{
+    width:80%;
+  }
+  #a{
+    width: 100%;
+  }
+  #tweet-quote{
+    color:white;
+    font-size: 25px;
+    float: left;
+  }
+  
+  #tumblr-quote{
+    margin-left: 5px;
+    color:white;
+    font-size: 25px;
+    float: right;
+  }
+  
+  #c{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+  }
+
+  #new-quote{
+    float: none;
+    font-size: 20px;
+    height: 60px;
+  }
+}
