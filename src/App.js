@@ -68,10 +68,10 @@ class App extends React.Component {
           <div className= 'row' id="g">
 
             <div className="col-sm-6 col-xs-12" id= 'a'>
-              <a id="tweet-quote" className="btn btn-default" style={{'backgroundColor':this.state.color}} href="twitter.com/intent/tweet">
+              <a id="tweet-quote" className="btn btn-default" style={{'backgroundColor':this.state.color}} href="https://twitter.com/intent/tweet">
                 <FontAwesomeIcon icon={faTwitter}/> 
               </a>
-              <a id="tumblr-quote" className="btn btn-default" style={{'backgroundColor':this.state.color}} href="twitter.com/intent/tweet">
+              <a id="tumblr-quote" className="btn btn-default" style={{'backgroundColor':this.state.color}} href="https://www.tumblr.com/explore/text">
                 <FontAwesomeIcon icon={faTumblr}/>   
               </a>
             </div>

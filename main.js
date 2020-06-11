@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu } = require('electron')
+const { app, BrowserWindow, Menu ,shell} = require('electron')
 var path =  require("path");
 const openAboutWindow = require('about-window').default;
 
@@ -13,7 +13,16 @@ function createWindow () {
       nodeIntegration: true,
     }
   })
+  // to open link in default browser
 
+  const handleRedirect = ( e, url ) => {
+    if ( url !== e.sender.getURL() ) {
+      e.preventDefault()
+      shell.openExternal( url )
+    }
+  }
+
+  win.webContents.on( 'will-navigate', handleRedirect )
   win.loadFile(path.join('build','index.html'))
 
   win.on('closed', () => {
@@ -42,28 +51,31 @@ app.on('ready', function(){
             show_close_button: 'Close',                    
           }),
     },
-    // below ,this line you add devTool on your electron window if you decomment it
-
+    // below ,this line add devTool on your electron window if you decomment it
+/*
     {
       label: 'Dev Tools',
       click() {
           // Open the DevTools.
           const currentW = BrowserWindow.getFocusedWindow();
+          // to open devtool in only main window
           if (currentW) currentW.webContents.openDevTools();
       }
     }  
+*/
   ]
   const menu = Menu.buildFromTemplate(template);
   app.applicationMenu = menu;
 });
 
-app.allowRendererProcessReuse = true
-
-app.on('window-all-closed', () => {
+app.on( 'window-all-closed', () => {
+  // On macOS it is common for applications and their menu bar
+  // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }
-})
+} )
+
 
 
 
